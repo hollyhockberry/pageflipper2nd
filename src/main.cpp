@@ -20,15 +20,9 @@ void move(uint8_t dx, uint8_t dy) {
 
 void move(bool forward) {
   const uint8_t dx = 100 * (forward ? -1 : 1);
-  const uint8_t dy = 100;
-  // Move to lower right (or left).
   for (auto i = 0; i < 10; ++i) {
-    move(dx, dy);
+    move(dx, 0);
   }
-  // Move away from the bottom edge to ensure movement to the edge
-  move(0, -dy);
-  move(0, -dy);
-  move(dx, 0);
   mouse.click(MOUSE_LEFT);
 }
 
