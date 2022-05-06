@@ -13,15 +13,11 @@ constexpr uint32_t SLEEPTIME_MS = 120 * 1000;
 BleMouse mouse("M5Flipper2");
 Presenter presenter;
 
-void move(uint8_t dx, uint8_t dy) {
-  mouse.move(dx, dy);
-  delay(1);
-}
-
 void move(bool forward) {
   const uint8_t dx = 100 * (forward ? -1 : 1);
   for (auto i = 0; i < 10; ++i) {
-    move(dx, 0);
+    mouse.move(dx, 0);
+    delay(1);
   }
   mouse.click(MOUSE_LEFT);
 }
